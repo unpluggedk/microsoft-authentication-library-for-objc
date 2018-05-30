@@ -34,6 +34,8 @@
 #import "MSALTestAppSettingsViewController.h"
 #import "MSALPublicClientApplication.h"
 
+#import "MSIDWebviewAuthorization.h"
+
 @implementation MSALTestAppDelegate
 {
     UITabBarController* _tabBar;
@@ -142,9 +144,10 @@
     (void)options;
     NSLog(@"iOS 9 OpenURL Method!");
     
-    [MSALPublicClientApplication handleMSALResponse:url];
+    return [MSIDWebviewAuthorization handleURLResponseForSystemWebviewController:url];
+//    [MSALPublicClientApplication handleMSALResponse:url];
     
-    return YES;
+//    return YES;
 }
 
 @end
