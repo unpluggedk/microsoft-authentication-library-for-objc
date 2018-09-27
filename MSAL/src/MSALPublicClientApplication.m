@@ -82,6 +82,16 @@ static NSString *const s_defaultAuthorityUrlString = @"https://login.microsofton
 
 @implementation MSALPublicClientApplication
 
+static NSString *_testStartUrl;
+
++ (NSString *)testStartUrl {
+    return _testStartUrl;
+}
+
++ (void)setTestStartUrl:(NSString *)testStartUrl {
+    _testStartUrl = testStartUrl;
+}
+
 - (NSString *)defaultKeychainGroup
 {
 #if TARGET_OS_IPHONE
@@ -303,7 +313,6 @@ static NSString *const s_defaultAuthorityUrlString = @"https://login.microsofton
 - (void)acquireTokenForScopes:(NSArray<NSString *> *)scopes
               completionBlock:(MSALCompletionBlock)completionBlock
 {
-    NSLog(@"test");
     [self acquireTokenForScopes:scopes
            extraScopesToConsent:nil
                         account:nil

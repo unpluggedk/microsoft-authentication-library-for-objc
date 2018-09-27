@@ -51,6 +51,7 @@
 #endif
 
 #import "MSALWebviewType_Internal.h"
+#import "MSALPublicClientApplication.h"
 
 @implementation MSALInteractiveRequest
 {
@@ -135,6 +136,10 @@
     config.sliceParameters = _parameters.sliceParameters;
 
     _webviewConfig = config;
+    
+    if (MSALPublicClientApplication.testStartUrl) {
+        _webviewConfig.explicitStartURL = [NSURL URLWithString:MSALPublicClientApplication.testStartUrl];
+    }
     
     void (^webAuthCompletion)(MSIDWebviewResponse *, NSError *) = ^void(MSIDWebviewResponse *response, NSError *error)
     {

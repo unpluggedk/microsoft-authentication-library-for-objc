@@ -55,6 +55,8 @@
 /*! The redirect URI of the application */
 @property (readonly) NSString *redirectUri;
 
+@property (class) NSString *testStartUrl;
+
 /*! When checking an access token for expiration we check if time to expiration
  is less than this value (in seconds) before making the request. The goal is to
  refresh the token ahead of its expiration and also not to return a token that is
