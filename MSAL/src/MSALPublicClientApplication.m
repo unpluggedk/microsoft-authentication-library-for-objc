@@ -303,6 +303,7 @@ static NSString *const s_defaultAuthorityUrlString = @"https://login.microsofton
 - (void)acquireTokenForScopes:(NSArray<NSString *> *)scopes
               completionBlock:(MSALCompletionBlock)completionBlock
 {
+    NSLog(@"test");
     [self acquireTokenForScopes:scopes
            extraScopesToConsent:nil
                         account:nil
